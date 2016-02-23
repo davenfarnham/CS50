@@ -1,0 +1,103 @@
+Section Schedule
+    -   intro, arrays, functions, command-line arguments, pset2
+
+        (1) Introduction
+            -   Be excited!!! This is your first section!
+            
+            -   Introduce yourself, the class, what students can expect from section.
+                -   Although not necessary, alot of TFs give out their phone numbers along with
+                    their email addresses. Just try to be accessible and welcoming, for many this
+                    is their first CS class ever! 
+                    
+            -   Mention some of the resources we have for students, i.e. Walkthroughs, Shorts, 
+                Study50, etc
+                * Note: Sections are a time to dive in and get some hands on experience with topics
+                        mentioned in class or in study materials, as such, it's expected students
+                        meet us half way! By coming to section having watched the lectures, read
+                        the pset spec, and thought about the problems, students will be able to get
+                        the most our of their time in section.
+            
+            -   Quickly go over grading! Stress that comments are just as important, if not more so,
+                than the actual score! Reading comments is how students will improve.
+                
+            -   Good example, Jason Hirschorn, Section 2 [0:06-9:10]
+
+        (2) Arrays
+            -   How do you make arrays?
+                -   <datatype> <name>[<size>];
+                    -   char alpha[26];
+                    -   int score[5];   
+
+            -   To initialize an array, simply index into that array starting at 0:
+                -   int score[0] = 0; // zero index all arrays!
+                    int score[1] = 1;
+                    int score[2] = 2;
+                -   int score[] - {1, 2, 3}; /* if you leave out the size of the array here, it will simply
+                                                create an array based on the number of entries. */
+
+            /* POSSIBLE TASK - HAVE EVERYONE CREATE AN ARRAY, THEN ITERATE OVER ITS MEMBERS */
+
+            -   Although we can use the "string" declaration to declare strings, "strings" are really
+                just arrays of characters.
+                -   So, if I declare some string s = "bowden fever"; then I can index into this like any
+                    other array.
+                    -   s[0] = 'b';
+                    -   s[1] = 'o'; /* if I were to do something like s[12], which is one past strlen(s), I 
+                                       would get the terminating character '\0'. */
+                                       
+            /* POSSIBLE TASK - HAVE EVERYONE CREATE A STRING, THEN PRINT IT OUT, LETTER BY LETTER */
+
+        (3) Functions
+            -   Functions (1) take something in [parameters], (2) do something [methods], and
+                finally (3) spit out an answer [return value].         
+                
+            -   Why do we want functions?
+                -   They allow us to minimize the amount of code we need to write. If, say, I wrote a function
+                    bool isRob(string s) to tell me, true/false, whether a string is equivalent to "Rob", I
+                    only need to write that function once - in the future I can just refer to this function 
+                    to test strings without having to repeatedly code the same thing.
+                        
+            -   One function everyone has seen already is int main(void)
+                -   int is the return type
+                -   main is the name of the function (every program needs a main() function - it signifies to
+                    the computer where to start running your code)
+                -   void is the parameter, which, in this case, is nothing
+                        
+            -   Something you have to mention is scope
+                -   If I have a program like scope.c, this will print out 5 and then 0. In the first case, this
+                    is because the scope of the variable is restricted by the curly braces, and in the second case,
+                    because the second variable gets precedence over the first.
+
+            /* POSSIBLE TASK - HAVE EVERYONE CREATE A SEPARATE FUNCTION TO SAY "HELLO" TO THE USER */
+            
+        (4) Command Line Arguments
+            -   One way to pass arguments into a program
+                -   int main(void) becomes int main(int argc, char* argv[])
+                    -   argc is an integer representing the number of arguments passed to the command line
+                    -   argv[] is an array of strings, or char*'s, that were passed into the program
+                -   If, for example, in my terminal window I type in "./mario 8", what will argc and argv be?
+                    -   argc is 2
+                    -   argv is [./mario, 8] // an array of length two
+                    -   you can also treat these arguments as a multi-dimensional array. What is argv[0][2]?
+                        -   'm'
+                        
+            /* POSSIBLE TASK - HAVE EVERYONE TAKE IN A USER'S FULL NAME, VIA THE COMMAND LINE, THEN PRINT OUT
+                               THE FIRST LETTER OF THEIR FIRST NAME */
+
+        (5) Pset Review
+            -   This week, students will be attempting Crypto
+                -   Caesar cipher is fairly straightforward; at the command line the user inputs an integer signifying 
+                    how many positions to rotate the characters in the target word. So, for example, if I entered the 
+                    word "Daven" followed by "1", it would output "Ebwfo".
+                    -   Students should be careful: all command line arguments are strings. How might they convert
+                        "1" in the above example to an int?
+                            -   atoi()
+                            
+                    -   Students should also be careful about rotating too far. By this, I mean, if I entered "Daven"
+                        and a number like "100", I'm going to get some really weird outputs. I need to be sure I use 
+                        mod (%) to limit my answers within an acceptable range.
+                        
+                 -  Vigenere cipher is similar to Caesar, except in place of an int, a second string is used to encrypt
+                    the target word. For example, entering "Daven" and "hi" will output "Kicmu".
+                    -   The trick here is that students have to iterate over the target word and the cipher simultaneously
+                        without "falling off" the end. Again, they should use mod.

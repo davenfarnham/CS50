@@ -1,0 +1,51 @@
+Things students should feel comfortable with before attempting pset2: Crypto
+
+    -   First thing students will see is a change in their main(void) function
+        - in place of (void), there will be (int argc, char* argv[]). argc is how many
+          arguments are passed to the program, while argv[] is an array containing the strings 
+          passed in as arguments. 
+              If I run "./caesar 2", then argc = 2, and argv will be an array containing
+              2 strings, "./caesar" and "2".
+          
+    -   Students should understand what modulo (%) does and why it's important
+        - n%d returns the remainder of n/d where n and d are both integers. 
+        - modulo is important because it restricts the max number attainable,
+          for example, if I have the alphabet stored in some array of chars,
+          let's call it "char alpha[26]", then I never want to index into that 
+          array past position 25 (since all arrays are 0 indexed). I can do this
+          by always mod'ing the index by 26:
+              alpha[0%26] -> 'a';
+              alhpa[5%26] -> 'f';
+              alpha[25%26] -> 'z';
+              alpha[26%26] -> 'a';
+              alpha[100%26] -> 'w';
+        - See "mod.c"
+
+    -   Arrays are sequential, contiguous blocks of memory. This makes indexing into them fast
+        because it is very easy for the computer to know exactly where to go to grab the next
+        piece of data (unlike linked lists, which we will get to later).
+            
+    -   So, let's say I declare a char array[16]; this is going to set aside 16 bytes of contiguous 
+        memory. Let's say I then declare another array, this time an int array[10];
+        this will set aside 40 bytes of contiguous memory (each int is 4 bytes).
+
+    -   Students should realize that strings are really just arrays of characters, so I can index 
+        into a string like I can index into any array.
+        - string s = "Rob";
+        - printf(%c%c%c\n", s[0], s[1], s[2]);
+              Output: Rob
+                
+/** This part gets into pointers and memory allocation - can be skipped for less comfy sections **/
+
+    -   Well then, what's the difference between char*, string, and char[]?
+        - char* and string are exactly the same. Something like char* s = "Hello"
+          will place the string "Hello" into the read-only part of memory with the pointer
+          s pointing to it. Because of this, strings (and char*) are immutable - they can't be
+          changed. If you try to change a string after it has been declared, you'll segfault.
+              string str1 = "hello";
+              str1[0] = 'w'; // segfault
+
+        - char[] will, instead, set aside memory on the stack, meaning you can change its 
+          contents.
+              char str2[5] = "hello";
+              str2[0] = 'w'; // no problem, str2 is now "wello"

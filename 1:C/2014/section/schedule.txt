@@ -1,0 +1,45 @@
+Welcome!
+    -   Name
+    -   Email
+    -   #
+Section
+    -   How best to use section
+    -   You should come to section having watched lectures, etc
+    -   We will be diving more in depth into topics covered in lecture
+        and doing lots of examples so it's important you have a baseline
+        before each section
+    -   Like a math/physics class, doing problems is how you'll understand
+        the material
+Grading
+    -   I won't be doing it, but if you have questions let me know
+OHs
+    -   Should use them!
+    
+Arrays
+    -   arrays.c 
+        -   how to initialize
+** Task ** have students create an array of classes, then print out "this semester I'm taking ... \n" (arrays-1.c is my implementation)
+        -   memory/ hex 
+    -   arrays-2.c 
+        -   talk about how strings are like arrays, even though they aren't (strings are read only)
+        -   string s = "hello"; what will printf("%c\n", s[4]); print?
+** Task ** have students print out the last letter of their neighbor's name
+
+Command Line
+    -   cline.c
+        -   argc is the count of arguments
+        -   argv is an array holding the arguments; it can be multidimensional!
+** Task ** have students create their own me.c
+    -   if you have input from the user, things could go wrong!
+
+Mod & ascii
+    -   mod2.c
+        -   always mod by length of array so as not to overrun the length
+    -   letters and chars can be represented in a similar fashion
+** Task ** have students print out there names with numbers
+    -   my version of this is ascii.c
+    
+Functions
+    -   why have functions?
+        -   they allow us to minimize code/ reuse code/ and they provide abstraction
+** Task ** write a function that adds two numbers (my example file with a function is hello.c)
