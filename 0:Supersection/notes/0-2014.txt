@@ -1,0 +1,160 @@
+Supersection Schedule (2014)
+    -   appliance, linux commands, data types, math & logic, conditions/loops,
+        functions, & pset1
+
+    (1) Appliance
+        -   The appliance is basically another operating system within your 
+            operating system.
+            -   Well, why do this?
+                - Because It creates a uniform environment for coding and 
+                  development; all idiosyncrasies present in particular
+                  environments get flattened out.
+                  
+                - If there are problems in the appliance with the internet,
+                  a common issue, run "sudo service network restart"
+                  
+                - "update50" is also always a useful fix for resolving some
+                  bugs within the appliance
+                  
+          
+    (2) Linux commands
+        -   Most common commands
+            -   "pwd" (present working directory)
+            
+            -   "cd" (change directory)
+                - "cd ." . signifies the current working directory
+                - "cd .." .. represents the above directory
+                - "cd -" means to cd into the previous directory you were in
+  
+            -   ls (list)
+                - list out all of the files and directories in the pwd
+                - "ls -l" -l is a flag, which will list out files/ directories
+                  with permissions
+                - "ls -a" -a is another flag, listing all contents, even 
+                  those that are hidden
+            
+            -   mkdir (make a directory)
+                - "mkdir example"
+    
+            -   rm (remove)
+                - usually used with the flags -f (force), -r (recursive), or 
+                  -rf (force recursive)
+                - if you want to remove a directory, you have to use the flag -r
+
+            -   cp (copy)
+                - you can easily copy a file "cp target destination". If you 
+                  want to copy a directory with its contents, however, you 
+                  have to include -r
+            
+            -   mv (move)
+                - move a file to another folder, or a folder to another folder. 
+                  If it doesn't already exist, this will create it
+
+        - Less common commands
+            -   > (output)
+                - for example, I want to store the output of some function in a 
+                  file called output.txt: ./tmp > output.txt        
+
+            -   < (input)
+                - use numbers from file and input them into something like a 
+                  GetInt() command:
+                  ./tmp2 < input.txt
+        
+            -   | (pipe)
+                - this is like a combination of input and output. It'll send 
+                  the output of one program to another program for further 
+                  processing: ./tmp2 < input.txt | ./tmp > output.txt
+            
+            -   grep (search for something)
+                -   such as: grep "fish"
+                           history | grep "fish"
+                           
+            -   Good example, Rob from section 1: More Comfortable [6:00 - 30:05]
+
+    (3) Data Types (on a 32 bit machine)
+        -   int 
+            -   4 bytes
+        -   float 
+            -   4 bytes
+        -   double 
+            -   8 bytes
+        -   long long 
+            -   8 bytes
+                - you can say long long int, but in most cases you can get 
+                rid of the int, as C will just assume you're talking about 
+                an int. 
+        -   char 
+            -   1 byte
+        -   short
+            -   2 bytes
+        -   string (which, in reality, is just a char*)
+            -   4 bytes
+        -   pointer
+            -   4 bytes
+        -   bool (false = 0; true != 0)
+            -   1 byte
+
+    (4) Math & Logic 
+        -   Operators
+            -   add.
+            -   sub.
+            -   mult.
+            -   div.
+            -   mod. (%)
+            -   there is no exponentiation (^ won't work)
+
+        -   Division of Floats
+            -   cast ints to floats 
+                -   1/10 = 0 because of integer division, whereas 
+                    (float) 1 / (float) 10 will give you .1.
+                -   think of it like this, let's say I want to represent 1/3 as a 
+                    decimal. Well, that's really .3333 repeating; how can I 
+                    represent this with a finite number of bits? I can't, so 
+                    there is has to be some imprecision.
+          
+        -   Operator Precedence
+            -   just like in math, PEMDAS
+
+        -   Boolean Expressions
+            -   Testing equality
+                - (==) equal
+                - (!=) not equal
+            -   Logical AND and Logical OR   
+                - && / ||
+
+    (5) Conditionals
+        -   Switch Statement (only works with integers)
+            -   when compiled, this will run much faster than an if-else statement,
+                for example:    
+
+                see /files/conditional/switch.c
+
+        -   Ternary Operator
+            -   condition ? (if true do this) : (else if false do this);
+            -   string s = (n = 50) ? "Malan" : "!Malan";
+
+    (6) Loops
+        -   while loop
+            -   while (true)
+                    do something;   
+        -   for loop
+            -   for(initialization; condition; increment/decrement)
+        -   do-while loop
+            -   do{
+                    something;
+                  } while (true); // this will always run at least one time.
+                  
+    (7) Functions
+        -   Organization, simplification, abstraction, reusability
+        -   the most common function:
+            -   int main(void)
+                -   In this example, "int" is the return value, "main" the name of 
+                    the function, and "void" the parameter, which, in this
+                    case is nothing
+        -   if you write a function below main (which you will) remember to
+            include it in a prototype above main!
+            
+    (8) Supersection should be before pset1, but pset1: C should be fairly self 
+        explanatory so there shouldn't be too much need, beyond any questions 
+        raised in class, to go over the pset spec.    
+                  

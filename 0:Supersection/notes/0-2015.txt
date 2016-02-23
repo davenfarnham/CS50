@@ -1,0 +1,112 @@
+Supersection Schedule (2015)
+    - logistics, setting up the IDE, linux, hello.c, data types, conditions/loops/switch,
+      pset 1
+    
+    (1) To set up the IDE, simply look on the spec. for pset1
+            - what is an IDE?
+            - what does it mean for it to be in the cloud?
+            - why do we want everyone programming in the same environment?
+            - what's really nice is there're multiple ways to do things. Next, I'm going to show you a number of linux commands that'll
+              help you navigate in the console, or terminal. What's nice about the IDE is, through its GUI, there are 'more intuitive'
+              ways to create files, move files, etc.
+            - show them the different parts of the IDE
+            - show them how to change theme.
+    
+    (2) What's really nice is that in the IDE there're multiple ways to do the same thing.
+        - Let's say I want to create a file. I can either click the "+", I can open the file in a separate editor and then save it, or I can 
+          do something like "touch [filename]" using just linux commands.
+        - The IDE is pretty amazing and it allows for a much more intuitive experience. We're going to spend some time, though, going over a number
+          of linux commands that'll not only be helpful in CS50, but also in any other subsequent classes you might take. 
+            - just for example, on all computers, such as on my mac, I can open up a console ("terminal window") to navigate my computer, bypassing
+              the GUI everyone is familiar with.
+         - inside a console, you can't really use your mouse or cursor. It's all done via commands you enter into your system. So for example if I hid 
+           my workspace hierarchy and then enlarged the terminal, it'd be like what you see in a terminal window without any of the graphical components.
+           
+    (3) Useful commands:
+        - Probably the most useful command is 'ls'.
+            - what do you think ls does? It lists things out.
+            - ls -l and ls -la are variants to see more. 
+        - once you know where you are, you can either open a file, create a file, go some where else, etc.
+        
+        - There's not much in the directory here, so let's say I want to go into 'temp' and see what's there.
+            - cd: change directory
+            - cd ..: go back
+        
+        - Create a new file:
+            - touch [file] // do this multiple times
+            - if you then check the file hierarchy, it's there!
+        
+        - let's say you want to create a directory to put all this stuff in.
+            - mkdir [directory name]
+            
+        - mv the files into the new directory
+            - mv file directory 
+        
+        - cp a file
+        
+        - now I don't like the files I have in my directory.
+            - first rm a single file, but then let's say I don't want any of the files or the directory. Use rm -rf on the directory.
+            
+        - to download a file from the IDE onto your computer: control click, then download. 
+            - you can also upload files by going to File -> Upload Local Files 
+        
+        - these are the basic linux commands that are going to be useful when working in the terminal. You might ask, we have an IDE, why do I need to
+          know how to work in the console when I can basically just take advantage of the GUI of the IDE. It's because a lot of times in your programming
+          careers, all you'll have is a console, so you have to have a basic literacy when it comes to linux commands in order to work. 
+         
+    (4) hello.c
+        - write hello world with them
+            - go over all the components:
+                - the include statement
+                - the data types
+                - the main function
+        - change this to say hello to someone in particular - ask for a student name.
+            - this should be the same as the function David wrote in class
+        - now break up the hello name part into a separate function, link in with "hello.c"
+            - can talk about the #includes part
+            - can also talk about compilation
+            
+    (5) hello.c with redirection   
+        - let's say I want to say hi to 5 people
+        - write a function in a for loop           
+        - run it in the terminal
+        - then use '<' direction to input from a text file.
+    
+    (6) grep and sort
+        - you might want to go over grep [word] [file] and sort [file
+               
+    (*) Representing negative numbers
+        - There're multiple ways to represent a negative number.
+            - signed magnitiude: In this method, the left-most (or most significant)
+              digit represents the sign while the rest of the bits represent the
+              magnitude. So, for example, 10001111 would be -15, since the 
+              left-most bit is turned on. 
+                - note, in this method there will be two ways to represent 0:
+                  10000000 and 00000000.
+                  
+                - How does this work with addition?
+                
+                    5: 00000101
+                   -5: 10000101 +
+                   ---------------
+                       00000000   (subtract the two quantities while keeping the sign
+                                   of the larger quantity)
+                                   
+            - one's complement: invert all bits.
+            
+                - Addition: 
+                
+                    5: 00000101
+                   -5: 11111010 +
+                   --------------
+                       11111111 (This is zero, or 'negative zero')
+                       
+                   10: 00001010
+                   -5: 11111010 +
+                   --------------
+                       00000101 (you have to wrap around, something you don't do
+                                 in twos-complement)
+
+            - two's complement: 
+          
+    (**) Flags when printing

@@ -1,0 +1,51 @@
+Concepts students should feel comfortable with before attempting pset1: C
+
+    -   They should feel comfortable working in the appliance and should be
+        able to navigate around by using commands like "ls", "cd", "cp", "rm",
+        etc.
+
+    -   Should understand the different data types and be aware of common 
+        pitfalls:
+            - truncation
+            - floats vs. ints 
+
+    -   The concept of conditions (if, else)
+        - format: if(condition is true)
+                    "do something"
+                  else
+                    "do something else"
+
+    -   The concept of iteration/ recursion
+        - Although you only really need iteration to successfully complete pset1,
+          it's not a bad idea to indroduce students to a basic recursive example.
+        
+        - For example, let's say I want to sum the numbers of an array:
+            - see sum.c   
+                            
+        - Likewise, what's the advantage to solving a problem recursively? What's the
+          advantage to solving a problem iteratively?
+            - Some problems just naturally lend themselves to a recursive solution
+              (i.e. Mergesort)
+            - In many instances, it makes sense to break up a large problem into smaller,
+              more manageable chunks, in which case recursion is better.
+            - Recursion is more elegant.
+            - Iteration is more straightforward. 
+            - Recursion can use up much more of the stack, as each call to itself produces
+              a new stack frame.
+              
+         - Which should you use? 
+            - In this course, you will probably only ever have to use what feels comfortable.
+              We may ask for a simple, recursive implementation of an algorthim on an exam,
+              but as far as psets go, iteration will suffice.
+
+        - What kind of iterative loops are there?
+            - while loop:
+                - while(condition)
+                    "do something"
+            - for loop
+                - for(initialization; condition; increment/decrement)
+                    "do something"
+            - do-while loop
+                do{
+                    "do something at least one time, regardless of condition"
+                  } while (condition); 
