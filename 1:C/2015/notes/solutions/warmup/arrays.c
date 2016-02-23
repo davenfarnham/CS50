@@ -6,7 +6,7 @@
  * the same as a normal array. Declare a1 as a multidimensional array then index into
  * it using (1) a2 which is a pointer to a1 and (2) pointer arithmetic on a1.
  *
- * Multidimensional array notation is really for us, to make things more readable. In
+ * Multidimensional array notation is really for us to make things more readable. In
  * actuality all arrays are simply laid out in memory as contiguous blocks of memory.
  *
  */
