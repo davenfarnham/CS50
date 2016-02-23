@@ -4,7 +4,7 @@
  *
  * Solution to problem. Students should (1) check the # of cmd-line arguments, (2) convert to an integer,
  * (3) place user's input into array, (4) sum array.
- * 
+ *
  * This is a good exercise working with cmd-line arguments and arrays.
  *
  */
