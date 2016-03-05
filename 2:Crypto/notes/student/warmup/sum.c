@@ -17,27 +17,27 @@ int sum (int* array, int count);
 
 int main (int argc, char* argv[])
 {
-  // check # of cmd line arguments
-  // TODO
+    // check # of cmd line arguments
+    // TODO
 
-  // convert string to int
-  // TODO
+    // convert string to int
+    // TODO
 
-  // compiler allows for variable length arrays
-  int array[size];
+    // compiler allows for variable length arrays
+    int array[size];
 
-  // prompt user for input; store in array
-  for (int i = 0; i < size; i++)
-  {
-      // TODO
-  }
+    // prompt user for input; store in array
+    for (int i = 0; i < size; i++)
+    {
+        // TODO
+    }
 
-  // print out sum of array
-  printf ("You gave me a total of %i terms equaling %i.\n", size, sum(array, size));
+    // print out sum of array
+    printf ("You gave me a total of %i terms equaling %i.\n", size, sum(array, size));
 }
 
 // sum up the entries of an array
 int sum (int* array, int count)
 {
-  // TODO
+    // TODO
 }
