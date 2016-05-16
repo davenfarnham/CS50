@@ -1,0 +1,35 @@
+Things students should feel comfortable with before attempting pset3: The Game of 15
+
+    -   Students should know how to use GDB to debug their code
+        -   GDB is useful because it allows us to debug code without having to
+            resort to a bunch of printf() statements.
+        -   Students should know how to run gdb, as well as numerous useful commands
+            such as "break", "run", "next", "display", "print", etc.
+            
+    -   In the first part of the pset, students will have to implement a sorting algorithm as
+        well as binary search. Overall, students should feel comfortable with:
+        -   Bubble Sort
+            -   see bubble.c
+        -   Insertion Sort
+            -   see insertion.c
+        -   Selection Sort
+            -   see selection.c
+        -   Merge Sort
+            -   see merge.c
+        
+    -   Binary Search takes an already sorted list and finds a value by repeatedly halving
+        the size of the problem, therefore running in O(log(n)) time complexity.
+            -   Think back to David's phone book example!
+    
+    -   Another thing students will start to see this week is substantial amounts of 
+        pre-written code.
+            -   Students should know how to approach this -> by going through provided
+                code and reading comments before starting.
+            -   Code will also be broken down into multiple files
+                -   I think this week, for example, find.c will #include <helpers.h>. 
+                    The prototypes of the functions in helpers.c are listed in helpers.h,
+                    meaning, if you #include helpers.h at the top of helpers.c you no 
+                    longer need to provide individual prototypes. Moreover, by including
+                    helpers.h at the top of find.c, now find.c has access to all of 
+                    helper.c's functions. 
+    

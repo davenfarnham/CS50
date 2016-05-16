@@ -1,0 +1,76 @@
+--Bubble Sort Pseudocode--
+
+    You have a sorted portion of the array and an unsorted portion of the array;
+    iterate over the unsorted portion of the array 'bubbling' up the largest value.
+    
+Bubble Sort Time Complexity
+
+    This runs in time complexity O(n^2) and space complexity O(n).
+        -   if you optimize with swaps, it can run in Omega(n)
+    
+    So, lets say you have an array of size 6, it will traverse 6, 5, 4, 3, 2, 1 elements, so GENERALLY:
+    
+    1). (n-1) (n-2) (n-3) 3 2 1 
+    2). 3n
+    3). (n/2) = 3
+        Substitute (n/2) for 3 -> (n/2) * n ==  n^2/2 == O(n^2)
+        
+--Selection Sort Pseudocode--
+
+    In a single array, split things up into a sorted portion and an unsorted portion. Then, find the 
+    smallest number in the unsorted array and put it at the head of the sorted array. Repeat.
+    
+Selection Sort Complexity
+
+    Runs in time complexity O(n^2), Omega(n^2), and space complexity O(n)
+    
+
+--Insertion Sort Pseudocode--
+
+    You have a sorted array and an unsorted array - take whatever element comes next in the unsorted array, 
+    then iterate over the sorted array finding where you should place the item.
+    
+    How is this different than selection sort?
+        -   Selection sort finds the SMALLEST value in the unsorted array and places it at the end of the 
+            sorted array, building the sorted array one element at a time from smallest to largest. Insertion
+            sort, on the other hand, takes whatever comes next in the unsorted array, small or large, and then
+            iterates over the sorted array finding exactly where to place it.
+
+Insertion Sort Complexity
+
+    Runs in time complexity O(n^2) except in the best case, when it can run in linear time (n);
+    will run in space complexity O(n).
+    
+
+--Radix Sort (Distributive sorting)--
+
+    Unlike Insertion sort, Selection sort, Bubble sort, and Merge sort (which I didn't bring up), Radix sort
+    is not comparative, instead grouping numbers based on their digits. For example, let's say I give you:
+    
+    [1, 87, 91, 14, 67, 88, 42, 37, 33, 11, 61, 4, 7, 21, 59, 72]               - 16 total numbers
+
+
+
+   |1, 91, 11, 61, 21| |42, 72| |33| |14, 4| |87, 67, 37, 7| |88| |59|          - start placing them in "buckets"
+                                                                                  based on their least significant digit, 
+                                                                                  always moving left to right. Here we have 
+                                                                                  6 buckets.
+                                                                                  
+   |1, 4, 7| |11, 14| |21| |33, 37| |42| |59| |61, 67| |72| |87, 88| |91|       - next, continue going left to right, but place 
+                                                                                  items in buckets depending on the next least
+                                                                                  significant digit
+                                                                                  
+                                                                                  
+    [1, 4, 7, 11, 14, 21, 33, 37, 42, 59, 61, 67, 72, 87, 88, 91]               - and you're done! sorting this array of length 16
+                                                                                  in 2 * (n) steps, better than merge sort which would've
+                                                                                  run in 4 * (n) steps.
+                                                                                  
+                                                                                  
+Radix Sort Complexity
+     
+    Will run in O(k*n) where n is the size of the array and k is the number of digits in the numbers. 
+                                                                                  
+    NOTE: Things like Radix Sort and Merge sort will generally run faster than other comparative algorithms on LARGE arrays - if, instead,
+          I gave Radix sort, Merge sort, and Insertion sort a sorted array of size 10, insertion sort would probably run fastest. Give them all a 
+	  million numbers unsorted, however, and merge sort and radix sort would blow insertion sort out of the water. That's what we mean by 
+	  BIG O: we are generally only interested in the performance of algorithms when sizes get very large. 

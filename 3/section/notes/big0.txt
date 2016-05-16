@@ -1,0 +1,17 @@
+Big O
+
+    - Think of Big O notation like this:
+        -   You want to determine the worst cast running time of an algorithm, suppressing lower order terms
+            and constant factors. This is because, as the data size, n, gets extremely large, nothing but the
+            highest order term is going to matter. 
+            
+        -   Concretely, for some sufficiently large number m as input size, if I can choose a function f(m) that
+            when multipled by a constant factor will ALWAYS be larger than the fuction in question, we can
+            say that the function in question runs in O(f(m)) time, since f(m) provides an upper bounds for our
+            function.
+            -   Note, for a function like merge sort, although the tightest bound is nlog(n), you can describe the
+                function's asymptotic worst case by ANY function that provides an upper bound, such as O(n^2).
+            
+            -   Big O, therefore, essentially describes the fastest the algorithm can run in the worst case. You
+                could say, for example, bubble sort runs in O(n^3), which provides an adequate upper bound, but
+                Big O of bubble sort is O(n^2) since in the worst case, it can NEVER run any faster than n^2.

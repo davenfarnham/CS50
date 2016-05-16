@@ -1,0 +1,18 @@
+pseudocode-
+
+    while(start <= end)
+        if (what I'm looking for = mid)
+            return position;
+        else if (what I'm looking for is less than mid)
+            end = mid - 1;
+        else
+            start = mid + 1;
+        
+
+Binary Search runs, in the best case, in constant time: Omega(1)
+
+In the worst case, Binary Search will take log(n) operations - this makes sense if you think
+about what Binary Search is doing: every time you re-enter the loop, you are halving the size
+of the problem.
+    -   From a mathematical standpoint log(n) base 2 means 2 to the power of what gives you n, or
+        2^x = n

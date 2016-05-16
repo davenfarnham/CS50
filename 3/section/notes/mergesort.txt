@@ -1,0 +1,29 @@
+Recursion Tree for Merge Sort
+
+    -   Assume you do 6n operations when comparing where n is the current size of the array // doing the merge step
+        -   This comes from the assumption that, recursive calls don't count as operations, therefore, in
+            the actual merge routine once things are returning from the base case, merge will use, at most, 6n
+            operations.
+    
+        // as a side note, logn base 2 will return how many times n can be divided by 2, before it
+        // gets to 1. So, for example, log8 base 2 is 3.
+    -   In total, if you diagram merge sort out in a tree structure, you are going to have a total of 
+        ([log(n) base 2] + 1) levels:
+        
+                (0)             [1,2,3,4,5,6,7,8]
+                     
+                (1)         [1,2,3,4]       [5,6,7,8]
+                     
+                (2)       [1,2]    [3,4]   [5,6]  [7,8]
+                     
+                (3)   [1]  [2]  [3]  [4]  [5]  [6]  [7]  [8]
+                
+     -  Where j is the level, on each level you have 2^j problems, each with a size of n/(2^j)
+     
+     -  Total number of operations at level j?: 2^j * n/(2^j) * 6 = 6n
+        -   How many levels?  logn base 2
+            -   Total operations: (6n*logn)
+
+     -  It's an algorithm that is faster than other sorting algorithms, i.e. bubble, selection, insertion, etc.
+        Its power comes from the fact that it's "divide and conquer"; from the fact you're doing k*n steps 
+        every level but only have logn levels -> (k*n*logn) will be, asymptotically, faster that n*n.  
