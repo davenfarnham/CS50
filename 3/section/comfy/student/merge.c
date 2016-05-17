@@ -34,14 +34,14 @@ int* combine (int* left, int s1, int* right, int s2)
 
     // place the rest of values into the temp array
     if (l < s1)
-        memcpy(temp + i, left + l, (s1 - l) * sizeof(int));        
+        memcpy(temp + i, left + l, (s1 - l) * sizeof(int));
     else
         memcpy(temp + i, right + r, (s2 - r) * sizeof(int));
 
     free(left);
     free(right);
 
-    return temp;        
+    return temp;
 }
 
 // recursively subdivide array
@@ -59,7 +59,7 @@ int* explode(int* array, int size)
 
     // find middle of array
     int mid = size / 2;
-  
+
     // new array for the left half
     int* left = malloc(sizeof(int) * (mid));
     // copy values into the new array
@@ -72,7 +72,7 @@ int* explode(int* array, int size)
 
     free (array);
 
-    return combine (explode(left, mid), mid, explode(right, (size - mid)), (size - mid));        	
+    return combine (explode(left, mid), mid, explode(right, (size - mid)), (size - mid));
 }
 
 int main(void)
@@ -83,7 +83,7 @@ int main(void)
 	srand(time(NULL));
 
 	for (int i = 0; i < SIZE; i++)
-	    *(array + i) = (rand() % 100);	
+	    *(array + i) = (rand() % 100);
 
 //	print_array (array, SIZE);
 

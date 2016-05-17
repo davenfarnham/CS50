@@ -3,13 +3,10 @@
  * Daven Farnham (Fall 2015)
  *
  * Radix Sort: O(wn). In this implementation, I use queues as temporary storage.
- * This is a basic example - problems persist in terms of space complexity. Notice
- * how at the very beginning the arrays in the queue data structure are initialized
- * to size of CAPACITY. Why do I have to do this? Also, there're unquestionably
- * memory leaks. Future fixes:
- *
- *		- change it so that the queues dynamically expand when full
- *		- fix memory leaks
+ * This is an updated example from last week. There are no longer any memory leaks.
+ * The queues also change size if you try to push more elements onto them. The only things
+ * to change are ARRAYSIZE, LENGTH, and the modded value when you're placing elements in the
+ * array in the main function.
  *
  * Time complexity will be (ARRAYSIZE * LENGTH).
  *
@@ -23,12 +20,12 @@
 #include <string.h>
 #include "helpers.h"
 
-// size of array (and each queue) at start
+// size of each queue at start
 #define CAPACITY 20
 // word size (number of digits)
 #define LENGTH 3
 // size of input array
-#define ARRAYSIZE 100
+#define ARRAYSIZE 25
 // you only have 10 digits
 #define DIGITS 10
 
@@ -51,8 +48,63 @@ typedef struct queue
 	int max;
 } queue;
 
+// prototypes
+bool enqueue (queue* ptr, int value);
+int dequeue (queue* ptr);
+int exponent(int n, int p);
+int digit(int number, int position);
+int* sort(int* a, queue* b[]);
+
+int main (void)
+{
+	// an array of pointers to queues
+        queue* buckets[DIGITS];;
+
+        // initialize values
+        for (int i = 0; i < DIGITS; i++)
+        {
+            buckets[i] = malloc(sizeof(queue));
+            queue* ptr = buckets[i];
+            ptr -> size = 0;
+            (ptr -> q) = malloc(sizeof(int) * CAPACITY);
+            (ptr -> head) = 0;
+            (ptr -> tail) = 0;
+            (ptr -> max) = CAPACITY;
+        }
+
+	// malloc an array to place elements in
+	int* array = malloc(sizeof(int) * ARRAYSIZE);
+
+	// see random # generator
+        srand(time(NULL));
+
+	// place elements in array
+        for (int i = 0; i < ARRAYSIZE; i++)
+            *(array + i) = (rand() % 1000);
+
+	// print out unsorted array
+	print_array(array, ARRAYSIZE);
+
+	// sort array
+        int* ret_array = sort(array, buckets);
+
+	// print out sorted array
+	print_array(ret_array, ARRAYSIZE);
+
+	// free all arrays (acting as queues)
+	for (int i = 0; i < DIGITS; i++)
+	{
+	    queue* ptr = buckets[i];
+	    free(ptr -> q);
+	    free(ptr);
+	}
+
+	// free return array
+	free (array);
+}
+
 // push elements onto the back of queue (called enqueue)
-bool push (queue* ptr, int value)
+bool enqueue (queue* ptr, int value)
 {
 	if (ptr -> size == ptr -> max)
 	    return false;
@@ -66,7 +118,7 @@ bool push (queue* ptr, int value)
 }
 
 // pop elements off the front of the queue (dequeue)
-int pop (queue* ptr)
+int dequeue (queue* ptr)
 {
 	if (ptr -> size == 0)
 	{
@@ -83,7 +135,7 @@ int pop (queue* ptr)
 	return value;
 }
 
-// useful helper function
+// useful helper function, n^p
 int exponent(int n, int p)
 {
         if (p == 0)
@@ -134,7 +186,7 @@ int* sort(int* a, queue* b[])
 		}
 
 		// push element onto the back of the queue
-		if(!push(ptr, *(a + i)))
+		if(!enqueue(ptr, *(a + i)))
 		{
 		    printf("Problem adding to queue\n");
 		    abort();
@@ -148,57 +200,10 @@ int* sort(int* a, queue* b[])
 		int s = (ptr -> size);
 
 		for (int l = 0; l < s; l++)
-		    *(a + (k++)) = pop(ptr);
+		    *(a + (k++)) = dequeue(ptr);
 	}
     }
 
     return a;
 }
 
-int main (void)
-{
-	// an array of pointers to queues
-        queue* buckets[DIGITS];;
-
-        // initialize values
-        for (int i = 0; i < DIGITS; i++)
-        {
-            buckets[i] = malloc(sizeof(queue));
-            queue* ptr = buckets[i];
-            ptr -> size = 0;
-            (ptr -> q) = malloc(sizeof(int) * CAPACITY);
-            (ptr -> head) = 0;
-            (ptr -> tail) = 0;
-            (ptr -> max) = CAPACITY;
-        }
-
-	// malloc an array to place elements in
-	int* array = malloc(sizeof(int) * ARRAYSIZE);
-
-	// see random # generator
-        srand(time(NULL));
-
-	// place elements in array
-        for (int i = 0; i < ARRAYSIZE; i++)
-            *(array + i) = (rand() % 1000);
-
-	// print out unsorted array
-	print_array(array, ARRAYSIZE);
-
-	// sort array
-        int* ret_array = sort(array, buckets);
-
-	// print out sorted array
-	print_array(ret_array, ARRAYSIZE);
-
-	// free all arrays (acting as queues)
-	for (int i = 0; i < DIGITS; i++)
-	{
-	    queue* ptr = buckets[i];
-	    free(ptr -> q);
-	    free(ptr);
-	}
-
-	// free return array
-	free (array);
-}

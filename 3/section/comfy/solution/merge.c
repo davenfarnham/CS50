@@ -29,8 +29,8 @@ int main(void)
 
 	// place random numbers into the array
 	for (int i = 0; i < SIZE; i++)
-	    *(array + i) = (rand() % 100);	
-	
+	    *(array + i) = (rand() % 100);
+
 	// call function explode, which will act recursively to divide array
 	int* temp = explode(array, SIZE);
 
@@ -54,7 +54,7 @@ int* combine (int* left, int s1, int* right, int s2)
     // combine the arrays
     while (l < s1 && r < s2)
     {
-	/* this notation uses pointer arithmetic. *(left + l) is 
+	/* this notation uses pointer arithmetic. *(left + l) is
 	 * basically the same as left[l]. */
         if (*(left + l) < *(right + r))
 	{
@@ -76,12 +76,12 @@ int* combine (int* left, int s1, int* right, int s2)
     }
 
     /* if you reach the end of one of the arrays (left or right)
-     * copy the rest of the values from whichever array did not 
+     * copy the rest of the values from whichever array did not
      * reach the end into temp. */
     if (l < s1)
         /* this function copies values into destination, from source, # of bytes.
 	 * So to be explicit: memcpy(destination, source, # of bytes). */
-        memcpy(temp + i, left + l, (s1 - l) * sizeof(int));        
+        memcpy(temp + i, left + l, (s1 - l) * sizeof(int));
     else
         memcpy(temp + i, right + r, (s2 - r) * sizeof(int));
 
@@ -91,7 +91,7 @@ int* combine (int* left, int s1, int* right, int s2)
     free(right);
 
     // return pointer to new array
-    return temp;        
+    return temp;
 }
 
 int* explode(int* array, int size)
@@ -108,7 +108,7 @@ int* explode(int* array, int size)
 
     // find middle of array
     int mid = size / 2;
-  
+
     // new array for the left half
     int* left = malloc(sizeof(int) * (mid));
     // copy values into the new array
@@ -123,5 +123,5 @@ int* explode(int* array, int size)
     free (array);
 
     // call combine on a recursive call to explode
-    return combine (explode(left, mid), mid, explode(right, (size - mid)), (size - mid));        	
+    return combine (explode(left, mid), mid, explode(right, (size - mid)), (size - mid));
 }

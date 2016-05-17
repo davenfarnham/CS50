@@ -1,0 +1,57 @@
+Deleting from memory -
+
+    In many instances, "deleting" memory simply means rewriting metadata that points to a file - you aren't actually writing
+    over any files, your computer is just "forgetting" where the file is
+
+    To actually sanitize a hard drive, a few random passes writing over memory is, in most cases, sufficient
+
+Stack & Heap memory -
+
+    variables -
+
+        - static variables are located in memory and, along with the executable code, persist for the lifetime of the program (something like a
+          global variable)
+        - automatic-duration variables are like local variables. They are located in their respective stack frames meaning, once a stack returns
+          (or is popped off the stack), the variable is lost
+        - dynamic variables come from the heap, can persist beyond the scope of a single function, and are controlled by you through malloc() and
+          free()
+
+    stack -
+
+        Each thread is reserved a region of memory that is referred to as its "stack";
+            Well, what is a stack?
+                - a stack is a LIFO data structure (LIFO - last in first out)
+                - it's also how a large portion of memory in any C program is organized. Whenever you run a C program, the stack grows as stack frames
+                  are constantly "pushed" onto the stack. This is where metadata, environment variables, and local variables are stored.
+
+        When you start a program, ANY program in this course, you first get a "stack frame"
+            - main() for example, is a stack frame. Stored in this stack frame are all its local variables.
+            - if you call another function, it gets 'pushed' onto the stack, on top of the main() stack frame if you visualize the stack as growing up
+            - what will this new frame contain? - well, just like main it will hold some environmental variables and local variables 
+                - this is more comy stuff, but it will *also* hold a memory address to the previous function (the calling function) 
+                  to get back to main() once it returns.
+                    - if I'm calling random functions from my main() function, how do I know where to go back to once these functions return? Each function 
+                      has a memory address that specifies where the program should go back to once it's done   
+            - everytime you call a function, memory is PRE-ALLOCATED for that function. That memory is specific to that stack frame, meaning,
+              the variables and data within a stack frame have RESTRICTED scope; I can't possibly access variables in another stack frame from where I currently am. 
+              Additionally, this means I can have the same variable names in mutiple functions - it doesn't matter since they are all differentiated by their stack frame.
+   
+    heap -
+        
+            - well, what if something in my program, a data structure like an array, for example, can't possibly be allocated before
+              runtime? What if we ask the user for input then create an array of that size? Well, we're going to segfault since the computer can't
+              possibly, when compiling, know how much space to set aside for your function.
+                - the way to get around this is through dynamically allocated memory
+            
+            - dynamically allocated memory draws from a *pool* of available memory (the heap) at runtime               
+               - you do this with malloc(), which takes size as an argument and returns a pointer to the allocated heap memory
+
+            - you dynamically allocate memory usually when:
+                1) you don't know how much memory your program will need
+                2) you want control over allocation and freeing
+                3) you want variables and data to persist beyond a single stack frame 
+
+            - dynamic variables give you markedly more control over variables, memory, and scope. However, there are more ways to mess up as well.
+              Automatic variables, like local variables in the stack, are returned to memory automatically whenever a function returns. If you are
+              malloc'ing memory, however, you have to explicity free() everything you allocated, otherwise you will *leak* memory, which means the 
+              computer can't reuse memory even though you're done with it

@@ -2,7 +2,7 @@
  *
  * Daven Farnham (Fall 2015)
  *
- * Insertion Sort: O(n) Ω(n^2). Insert an element in its 
+ * Insertion Sort: O(n) Ω(n^2). Insert an element in its
  * correct position in the array.
  *
  */
@@ -52,10 +52,10 @@ void insertion(int* array, int size)
 void shift (int* array, int sorted, int unsorted)
 {
 	int temp = array[unsorted];
-	
+
 	for (int i = unsorted; i > sorted; i--)
 	{
-		array[i] = array[i-1]; 
+		array[i] = array[i-1];
 	}
 
 	array[sorted] = temp;

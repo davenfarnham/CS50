@@ -1,0 +1,73 @@
+Pointers:
+
+
+    Normally, when I declare a variable like x, I get a box, like this:
+
+                                (x)
+                            ----------
+                            |        |
+                            |        |
+                            |        |
+                            |        |
+                            ----------
+
+    this box, if x is an int will be 4 bytes, if it's a char will be 1 byte, etc.
+
+    Assuming x is an int, if I then initialize it like this: x = 50, the box looks
+    something like this: 
+
+                                (x)
+                            ----------
+                            |        |
+                            |   50   |
+                            |        |
+                            |        |
+                            ----------
+
+    what you don't really think of, however, is that although the contents of this box
+    are 50, the box itself is located somewhere in memory. For this example, let's assume it's
+    located at 0x123 (you know we are talking about hex values & memory addresses from the '0x')
+
+                                (x)
+                            ----------
+                            |        |
+                            |   50   |
+                            |        |
+                            |        |
+                            ----------
+                         at address: 0x123
+
+    let's say, now, I declare a pointer, like this:
+    
+                                                    int* y = &x;
+
+    In this line, the int* declares 'y' as a pointer to an int, while the '&' means we want to store in
+    y, not the VALUE of x (which is 50), but rather the MEMORY ADDRESS of x. Our picture then becomes this:
+    
+                                (x)                         (y)
+                            ----------                  ----------
+                            |        |                  |        |
+                            |   50   |    <-----------  | 0x123  |
+                            |        |                  |        |
+                            |        |                  |        |
+                            ----------                  ----------
+                         at address: 0x123           at address: 0x127
+
+    y holds the MEMORY ADDRESS of x. If we want to access the VALUE of x using y, we are going to use the '*' again,
+    but this time it doesn't mean pointer, but rather it acts to dereference y. For example:
+    
+                                                    *y = 51;
+                                                    
+    goes to the memory address stored in y (0x123), accesses its values (50), then changes it to 51. The picture thus
+    becomes: 
+
+                                (x)                         (y)
+                            ----------                  ----------
+                            |        |                  |        |
+                            |   51   |    <-----------  | 0x123  |
+                            |        |                  |        |
+                            |        |                  |        |
+                            ----------                  ----------
+                         at address: 0x123           at address: 0x127
+
+    hence we were able to change the value of x using a separate variable: the pointer y!

@@ -1,5 +1,7 @@
+all: insertion merge radix
+
 insertion: insertion.c
-	gcc -o insertion insertion.c helpers.c 
+	gcc -o insertion insertion.c helpers.c
 
 merge: merge.c
 	gcc -o merge merge.c helpers.c

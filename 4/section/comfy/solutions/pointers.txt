@@ -1,0 +1,78 @@
+Assume you have two pointers: 
+
+char* p = (char*) 0x1000;
+char* q = (char*) 0x1010;
+
+
+					type		numeric value
+	
+p					char*		0x1000
+	
+&p[1]					char* 		0x1001				
+
+&p[-1]					char*		0x999
+
+&p[0]					char* 		0x1000
+
+&p[1] - &p[0]				ptr_diff	1
+
+&p[16]					char*		0x1010
+
+(p + 1) - p				ptr_diff	1
+
+&p[16] - p				ptr_diff	16
+
+q - p					ptr_diff	16
+
+sizeof(p)				int		4 // size of pointer
+
+sizeof(*p)				int 		1
+
+
+***	int* ip = (int*) p; 	***
+
+&ip[0]					int* 		0x1000	
+
+&ip[1]					int*		0x1004
+
+&ip[1] - &ip[0]				ptr_diff	1 // both pointers to ints
+
+(char*) &ip[1] - p			ptr_diff	4
+
+sizeof(ip)				int		4 // size of pointer
+
+sizeof(*ip)				int		4
+
+&ip[sizeof(int)]			int* 		0x1010
+
+ip + sizeof(int)			int* 		0x1010
+
+ip + 1					int*		0x1004
+
+p + sizeof(int)				char*		0x1004
+
+***	int* iq = (int*) q;	***
+
+iq - ip					ptr_diff	4
+
+&iq[-1] - ip				ptr_diff	3
+	
+***	p[0] = p[1] = p[2] = p[3] = 0;	***		 	
+
+*ip					int		0 
+
+	*(char*) ip = 1;
+
+*ip					int		1 
+
+***	*((char*) ip + 1) = 1;	***			 
+
+p[1]					char		1 
+
+*ip					int		257
+
+***	*((char*) ip) = 2;	***
+
+*((char*) ip)				char		2
+
+*ip					int		258

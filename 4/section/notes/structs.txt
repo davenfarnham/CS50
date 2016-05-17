@@ -1,0 +1,39 @@
+Structs -
+
+    Structs are kind of like arrays in that they are used to store lots of data, however, they are unlike arrays
+    in that you can put DIFFERENT KINDS of data types within a single struct.
+    
+    for example, let's say I have a struct for tables (WAY 1):
+    
+    struct table
+    {
+        int legs;
+        char* kind;
+    }
+
+    this struct contains a string and an int (so it has a total size of 8 bytes). To initialize this struct and its variables,
+    use dot notation:
+    
+        struct table my_table;
+        my_table.legs = 4;
+        my_table.kind = "oak";
+        
+        
+    There are multiple ways to declare a struct; I think we were all right on Monday =) You can do it in the above fashion, or,
+    you can do it like this:
+    
+    (WAY 2)                                                                             (WAY 3)
+    
+    typedef struct table                                                                typedef struct
+    {                                                                                   {
+        int legs;                                                                           int legs;
+        char* kind;                                                                         char* kind;
+    } table;                                                                            } table;
+        
+        table my_table;                                                                 table my_table;
+        my_table.legs = 4;                                                              my_table.legs = 4;
+        my_table.kind = "oak";                                                          my_table.kind = "oak";
+
+
+    all three will compile, the only difference is if you don't use 'typedef' then you'll have to, when declaring a struct, remember
+    to include the keyword 'struct' (like in WAY 1).

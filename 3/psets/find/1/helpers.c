@@ -49,7 +49,6 @@ void sort(int values[], int n)
 
 		for(int i = 0; i < n-1; i++)
 		{
-
 			if(values[i] > values[i+1])
 			{
 				int temp = values[i];

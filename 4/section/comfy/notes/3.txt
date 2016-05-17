@@ -1,0 +1,24 @@
+- Start off with a talk of pointers
+	- go over the worksheet from CS61
+
+	- go over radix sort
+
+- Memory
+	- stack
+		- stack.c
+		- organization of the stack and how it works (which direction it grows)
+	
+	- heap
+
+- FILE I/O 
+	- change radix.c to take an array from an input file, and print out to an out file.
+		- can also be done somewhat easily with redirection
+
+	- helpful functions
+		- fread()
+		- fwrite()
+		- etc
+
+- pset
+	- resize.c
+	- recover.c
