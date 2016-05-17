@@ -1,4 +1,6 @@
 /*
+ * By Daven Farnham (2014)
+ *
  * ptr.c : illustrate how the type of pointer, be it a char*, int*, or whatever, affects how
  * you can increment the pointer value using array index notation.
  */

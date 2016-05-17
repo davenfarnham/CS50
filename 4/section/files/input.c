@@ -1,3 +1,11 @@
+/*
+ * By Daven Farnham (2014)
+ *
+ * Similar to increment, except you can can pass in multiple strings via
+ * input.txt.
+ *
+ * ./input < input.txt
+ */
 #include <stdio.h>
 #include <cs50.h>
 

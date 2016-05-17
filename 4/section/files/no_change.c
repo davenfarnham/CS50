@@ -1,3 +1,9 @@
+/*
+ * By Daven Farnham (2014)
+ *
+ * Use pointers to change value
+ */
+
 #include <stdio.h>
 
 void change(int* i);

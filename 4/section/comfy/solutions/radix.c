@@ -193,7 +193,6 @@ int* sort(int* a, queue* b[])
 		}
 	}
 
-
 	for(int i = 0, k = 0; i < DIGITS; i++)
 	{
 		queue* ptr = b[i];

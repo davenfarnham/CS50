@@ -1,4 +1,6 @@
 /*
+ * Daven Farnham (2014)
+ *
  * copy.c: copy a text file from argv[1] to argv[2]. Check equality by then running the linux
  * command 'diff'
  */

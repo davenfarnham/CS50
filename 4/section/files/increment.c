@@ -1,3 +1,11 @@
+/*
+ * By Daven Farnham (2014)
+ *
+ * Use redirection to pass in a number from a text file and increment it. For example,
+ * ./increment < my_number.txt
+ *
+ */
+
 #include <stdio.h>
 #include <cs50.h>
 

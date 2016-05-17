@@ -1,3 +1,9 @@
+/*
+ * By Daven Farnham (2014)
+ *
+ * Use pointers to change a variable.
+ */
+
 #include <stdio.h>
 
 void change(int* i);

@@ -67,7 +67,6 @@ int main(int argc, char* argv[])
 		c = fgetc(in);
 	}
 
-
 	// close files
 	fclose(in);
 	fclose(out);

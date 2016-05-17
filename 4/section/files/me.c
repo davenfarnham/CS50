@@ -1,3 +1,9 @@
+/*
+ * By Daven Farnham (2014)
+ *
+ * Similar to both input.c and increment.c
+ */
+
 #include <stdio.h>
 #include <cs50.h>
 
