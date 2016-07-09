@@ -1,0 +1,30 @@
+- HTTP & TCP
+  - HTTP: Connectionless. Everytime I send or request a piece of information, I have to 
+   	  open up a new connection. 
+
+  - TCP is connected and reliable - if a packet is dropped, it will resend it.
+
+  - talk about the protocol stack and what happens when I request some information from, say, facebook.com
+    - facebook's ip: 69.171.230.5
+
+- Make a webpage (HTML + CSS)
+	- show video of mr.meeseeks
+
+	- talk about HTML
+  	  - the hypertext in the above example is HTML 
+
+	- talk about CSS
+	  - it's a way to break up the code, kind of like using functions
+	    - # for ids
+	    - . for classes
+	    - nothing for normal tags
+
+	- chmod
+	  - to change the permissions of things
+	    - 711 for directories
+	    - 644 for everything except PHP files
+	    - 600 for php files
+
+	- open up developer tools and network to look at all the connections your webpage is making
+
+- Walk through pset

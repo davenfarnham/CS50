@@ -1,0 +1,18 @@
+h1, #meeseeks {
+    text-align: center;
+}
+
+.header {  
+    color: white;
+}
+
+body {
+    background-color: #2B3856;
+}
+
+img {
+    padding: 5px 5px 5px 5px;
+    border-width: 35px;
+    border-style: solid;
+    border-color: #151B54
+}
