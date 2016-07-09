@@ -1,0 +1,14 @@
+h1, #pumpkin {
+    text-align: center;
+}
+
+body {
+    background-color: #FF8000;
+}
+
+img {
+    padding: 5px 5px 5px 5px;
+    border-width: 35px;
+    border-style: solid;
+    border-color: black;
+}

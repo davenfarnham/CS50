@@ -1,0 +1,24 @@
+Outline
+
+    1) Go over the internet
+        - Have a student, when I'm done, explain to me everything that happens
+          when I open a page like facebook.com
+    
+    2) Now that students understand a bit of how the internet works, go over 
+       the hypertext in HTTP (which is HTML - hypertext markup language)
+        - code the Halloween page, then have students spend some time
+          creating their own pages
+          
+        - getting this to work, run into a permission error (a HTTP 403 code).
+          Use this to transition into a discussion about chmod.
+          
+        - open up developer tools on your page and view some of the requests you 
+          just talked about
+
+    3) Students should understand what happens both as a client and a server when
+       a request is made. They should also understand some of the information (hypertext)
+       that is being passed back and forth, which makes pages nowadays so awesome.
+        - go over the pset spec
+            - the general flow
+            - hard to understand function
+            - sockets

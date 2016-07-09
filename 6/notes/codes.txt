@@ -1,0 +1,23 @@
+Common Internet Response Codes
+
+200: Everything went well!
+304: Not Modified (for when something, like an image, has been cached)
+400: Bad Request
+403: Forbidden
+404: Page not found
+500: Internal Server Error
+
+Common chmod Commands
+
+711: Directories (Everything to me; executable to everyone)
+644: Any non-PHP file (readable & writeable to me; readable to everyone else)
+600: PHP files (readable & writable only to me)
+
+Ports
+
+20/21: File Transfer Protocol
+23: Telnet
+25: SMTP
+53: DNS
+80: HTTP
+443: HTTPS

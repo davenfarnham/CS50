@@ -1,0 +1,141 @@
+The Basic Layers of the Internet
+
+**THE PROTOCOL STACK**
+
+                                           Protocol Stack
+
+                                        --------------------
+                                        |    Application   |
+                                        |        Layer     |
+                                        --------------------
+                                        |        TCP       |                                
+                                        |                  |
+                                        --------------------
+                                        |         IP       |    ----->
+                                        |                  |
+                                     --------------------------
+                                    
+
+*TRAVELING THROUGH THE PROTOCOL STACK*
+
+All computers are connected. But, how does one computer know where another one is?
+
+Let's say I request some kind of information from google.com. How does that information 
+get to me? Well, it has to go through the protocol stack!
+
+Application Layer: Simply applications that allow you to use the internet. One such service is the
+world wide web, which uses HTTP. (you remember when you used to have to type in http://www.webpage.com -
+you see it right in the address; connect to the world wide web via hypertext transfer protocol). HTTP is
+a connectionless protocol in that, after a request is sent and serviced, the connection between client
+and server is terminated; any additional requests require new connections to be opened.
+
+TCP: To make sure the information gets to me uncorrupted, the internet uses a protocol 
+frame known as TCP. Whenever information travels across the internet, it travels in packets 
+of data that're broken up and later reassembled. Delivery is never error-proof, so TCP ensures 
+that this data gets to me!
+
+IP Address: Every device (server, computer, phone, etc) connected to the network 
+has a label that identifies it; this is its IP address. This is essentially a mailing 
+address that lets data know where to go. An IP address is in the form "nnn.nnn.nnn.nnn" 
+but can be renamed with something like google.com, facebook.com, etc (using Domain Name Service; DNS).
+    - DNS is simply a table that keeps track of names, like facebook.com, and its IP address (173.252.120.6)
+
+So, if I'm trying to send someone a piece of data, say an image for example, that image will: 
+
+    1) First be sent through an application layer such as file transfer, email, etc. The application
+       layer basically just contains ways to connect to the internet (HTTP).
+       
+    2) If the data being sent is big (which it usually is) it'll get broken up into different packets. 
+       These packets will be assigned port numbers & IP addresses. IP addresses are, like we said, simply
+       the addresses of other devices on the network, while ports specify the correct application on the
+       destination computer - think of it like this, I can look at mail via port 25 and surf the web via
+       port 80 since these applications are separated and distinguised by TCP. They are, in effect, separate
+       channels. When I send information I kind of wrap it with a port number, which is later used when data
+       packets are sent up the protocol stack on the receiving computer. TCP is connection based and reliable, 
+       in addition to adding specific headers (ports) about where to go, it requires the two involved applications
+       to acknowledge receipt of delivery. In this way, any dropped packets are resent. Notice too, in the TCP
+       frame of the protocol stack there are no IP addresses. An IP address is added in the IP frame, which cares
+       little about reliability and is really only concerned with marking a data packet with a currect address.  (TCP/IP)
+
+    3) At the Hardware level, packets are converted to electronic signals or whatever means they are going 
+       to pass between computers
+       
+    4) Packets are then "routed" (by routers!) where to go until they finally reach their destination, where 
+       they travel inversely up to the receiver's application layer.
+       
+The infrastructure of the internet is such that your computer is connected to an ISP (local) which in turn is 
+connected to some regional ISP. These are then connected to major Network Service Providers (NSPs) that provide
+the backbone of the internet. NSPs are themselves connected via Network Access Points (NAPs), establishing a hierarchy.
+
+Much of the magic of the internet is contained in the router. When I send a packet of data over the internet, 
+does it know where to go? Definitely not. It has an IP address but there is no way it could get there by itself.
+The router, after examining a packet's IP address, figures out where to send it. If a particular router doesn't 
+know where it should go, it'll send it along a default route where another router will (hopefully!) know where it
+should go. Routers will send data up the internet hierarchy checking routing tables until one, eventually, knows
+where to send the data.
+
+*LOOKING UP A PAGE (AKA USING HTTP)*
+
+HTTP (Hypertext Transfer Protocol) is a convention (the hypertext is usually HTML) - it's how computers and servers 
+talk with one another (kind of like a handshake!). When my computer (client) requests a webpage from a server, I 
+send a requent and get back a response. The exact structure of this conversation is specified in the application 
+layer (the world wide web) by HTTP. 
+
+    1) You type in a domain name, such as facebook.com, whose IP address is found through DNS
+    
+    2) The web browser connects to the server via the protocol stack (discussed above) and sends an
+       HTTP request for a webpage
+       
+    3) The web server checks to see if the page exists; if it does it sends it, otherwise it returns a 
+       404 error (page not found)
+    
+    4) The web browser receives the page then CLOSES THE CONNECTION
+
+    5) The browser parses the page, and if additional elements are needed, such as an image, a new 
+       request is sent to the server.
+
+    6) For each request, a new connection and request must be made. Once a page is completely loaded,
+       your browser renders the page!
+
+*PUTTING IT ALL TOGETHER*
+
+I want to go to www.facebook.com:
+
+    1) My computer is connected to the world wide web, which is connected to local ISPs, regional ISPs, 
+       NSPs, NAPs, etc.
+       
+    2) My computer connects through an access point (AP) to a switch that resolves Dynamic Host Configuration
+       Protocol (DHCP), which dynamically generates an IP address for my device, and Domain Name System (DNS) 
+       that finds an IP address for a domain name.
+
+    3) At the application layer, you are connecting to a server via HTTP. 
+    
+    4) Your client makes a GET request to the server, which has to go through the protocol stack. The next frame 
+       on the stack is TCP where this GET request is wrapped with a port number. 
+       
+    5) It is then moved down the protocol stack and wrapped with an additional header, that of the IP address of
+       its destination
+       
+    6) So, now we have a complete packet with the GET request, port number, and IP address:
+       
+                <---------------------- Complete Packet ------------------------->
+
+                -------------------------------------------------------------
+                |               |               |                           |
+                |   IP Header   |   TCP Header  |   Data from Application   | 
+                |               |               |                           |
+                -------------------------------------------------------------
+
+       This packet is then transmitted across the internet.
+     
+    7) The packet is routed by routers, who look at its IP address and figure out where it goes. If a particular
+       IP address doesn't know where to send a packet, it sends it along a default path to another router that hopefully
+       knows.
+       
+    8) Eventually, a packet will get to its destination. Going up the protocol stack, the IP address header is stripped. 
+       The TCP layer confirms receipt of the packet, then directs it to the correct port on the receiving server. The server
+       can then access the GET request and send data back.
+        1) The first thing it sends back is hypertext (HTML)
+        2) Any additional elements in this hypertext, such as images, have to be requested via this same process, with separate
+           GET requests
+        3) Once the page is completely loaded, no more requests are sent and the page is loaded by the browser
