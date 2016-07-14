@@ -1,0 +1,42 @@
+SQL
+
+creating tables - 
+
+    CREATE my_table;
+
+    - primary key (means you can't have 2 in the table). The reason you want
+      ID to be the primary key is because you might have identical usernames
+      or something, so you want to specify a row by a value you are auto-
+      incrementing (such that it'll never be the same and never return multiple
+      rows)
+      
+    - we'll also make 'username' a unique key (we'll check later on if a 
+      username is taken and if it is, we won't allow another user to duplicate
+      it)
+      
+    - Unique and Primary identifiers are very similar, the main difference 
+      being you can have multiple unique identifiers but only one primary key
+
+insert
+
+    INSERT INTO my_table (col1, col2, ...) VALUES (val1, val2, ...)
+    
+    INSERT INTO my_table (users, hash, cash) VALUES (daven, cassie12, 10000.00)
+
+update
+
+    UPDATE my_table SET id = 2 WHERE id = 1
+    
+select
+
+    SELECT name FROM section (get a column of values)
+    
+    SELECT name FROM section WHERE id = 1
+
+delete
+
+    DELETE FROM my_table WHERE name="GOOG" (deletes row)
+
+drop
+
+    DROP TABLE section

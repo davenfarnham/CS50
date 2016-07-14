@@ -1,0 +1,46 @@
+MVC
+
+What it is and why we use it
+
+    - mvc (Model - View - Controller) is a way to organize data such that
+      it is easier for us, as programmers, to know what it going on. When
+      I try to log onto a page, I'm most likely first going to run up against
+      a controller - something that is going to run some script and direct me
+      where to go. 
+    
+Controllers
+
+    - in your pset, what's the first controller you run up against?
+        - it's when you try to log in, with login.php (or later, with
+          register.php). When you first hit these pages, they are going to ask
+          for information (a username, password, etc).
+    
+    - this information will either be checked or stored in some database, which is
+      the model.
+      
+    - that information might then be incorporated into a template, the view, which
+      is presented to the user. 
+      
+    - what's important to understand is that the controller is in charge of combining
+      data and presentation, as well as directing a user's experience. These kind of
+      files will likely
+
+Models
+
+    - so our SQL tables in this pset, for example, are the Models. This is where we 
+      are going to store our data (users, history, etc.)
+
+Views
+
+    - which are, for us, templates. These will (usually) consist of fair amounts of HTML
+      since these are what the user will eventually see.
+      
+Example
+
+    -> login.php (controller) 
+        -> you type in credentials 
+            -> it checks SQL database (model) 
+                -> if everything checks out it redirects you to index.php (controller)
+                    -> which renders portfolio.php (controller) in between a header and footer
+                        -> for most of us, this is simply the "Under Construction" image (view)
+    

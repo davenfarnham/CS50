@@ -1,0 +1,9 @@
+PHP
+
+    - creating arrays
+
+    - passing information back and forth using superglobals $_POST & $_GET
+
+    - $_SESSION superglobal variable
+
+

@@ -1,0 +1,26 @@
+- Talk about PHP
+	- how it's very similar to C [done]
+
+- do mario with them [done]
+
+- Have them do something I've done: search for a name in a spreadsheet, find 
+  the email field, return that [done]
+
+- create a form using HTML and PHP
+	- start up MAMP (why do you need to?)
+	- change to method="get" (see in URL the change)
+
+- SQL
+	- use MAMP to set up a server to make a SQL table: 
+		- Name, Assignment, Grade
+
+		- Insert
+		- Update
+		- Select
+		- Delete
+		- Drop
+
+
+- MVC
+
+- pset walkthrough

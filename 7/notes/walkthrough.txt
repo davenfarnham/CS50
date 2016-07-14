@@ -1,0 +1,21 @@
+
+    1) Go over MVC; what it is, why we use it, then go over an example from the pset
+    
+    2) Talk about PHP.
+        - It's a programming language, unlike HTML, however it melds well with HTML
+        - Server-side
+        - Interpreted (you don't have to compile anything!)
+        - It's dynamically typed (no need for int, string, etc! - just use $variable)
+
+        Examples: string.php (show them something they did on the exam), array.php, form.php -> action.php
+            - superglobal variables: $_POST, $_GET, $_SESSION (an associative array; so when I say $_SESSION["id"] it's simply an
+              associative array containing the id I'm currently working with. I could, of course, put other pertinent information
+              to a particular user inside this $_SESSION variable)
+
+    3) create a new table in mysql
+        - go over what kind of values you want everything to have when creating table
+        - go over SELECT, UPDATE, INSERT INTO, DELETE
+
+    4) go over the functions in include/ && go over a file, like login.php
+        - login.php, functions.php, render(), extract() - takes an associative array where it then treats keys as variable names
+          and values as variable values
